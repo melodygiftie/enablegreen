@@ -31,7 +31,7 @@
             position: relative;
         }
 
-        /* --- ANIMATED LOADING SCREEN --- */
+        /* --- LOADING SCREEN (FAST 0.5s TRANSITION) --- */
         #loader {
             position: fixed;
             top: 0;
@@ -43,19 +43,21 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.6s ease, visibility 0.6s;
+            /* Snappy 0.5s fade out */
+            transition: opacity 0.5s ease, visibility 0.5s;
         }
 
         #loader img {
-            height: 120px; /* Slightly larger for the loader */
+            height: 250px; /* Bigger logo for loading */
             width: auto;
-            animation: pulse 2s ease-in-out infinite;
+            /* 0.5s pulse for a more energetic feel */
+            animation: pulse 0.8s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.7; }
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
         }
 
         .loader-hidden {
@@ -94,10 +96,10 @@
         }
 
         .logo-img {
-            height: 70px; 
+            height: 70px; /* Professional size */
             width: auto;
             display: block;
-            mix-blend-mode: multiply; 
+            mix-blend-mode: multiply; /* Transparent effect */
         }
 
         .nav-links {
@@ -146,7 +148,7 @@
             font-style: italic;
         }
 
-        /* Standard Sections */
+        /* Layout */
         .container { max-width: 1200px; margin: auto; }
 
         .section-title {
@@ -175,6 +177,7 @@
             border-top: 4px solid var(--primary-green);
         }
 
+        /* Services */
         .services { padding: 80px 10%; }
 
         .services-grid {
@@ -247,7 +250,7 @@
         }
 
         .member-img {
-            width: 200px;
+            width: 200px; /* Large professional size */
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
@@ -296,7 +299,7 @@
 
     <!-- LOADING SCREEN -->
     <div id="loader">
-        <img src="enablegreen.png" alt="Loading...">
+        <img src="enablegreen.png" alt="Loading Enable Green Consulting...">
     </div>
 
     <nav>
@@ -362,8 +365,8 @@
         <div class="container">
             <h2 class="section-title">Green Building Certification</h2>
             <div class="card">
-                <p>We are your one-stop shop firm for Green Building Certification Services...</p>
-                <p style="margin-top:15px;">In addition, we offer WELL, DGNB, and LEED Certification services...</p>
+                <p>We are your one-stop shop firm for Green Building Certification Services. As licensed EDGE Experts, Auditors and Faculty, we handle your EDGE Certification from Assessment/modelling in the EDGE App to Certification with multiple Certifiers (GBCI, GBCSA, and Bureau Veritas).</p>
+                <p style="margin-top:15px;">In addition, we offer WELL, DGNB, and LEED Certification services and perform Life Cycle Assessments using One Click LCA tools.</p>
             </div>
             <div class="cert-logo-container">
                 <a href="https://edgebuildings.com/" target="_blank"><img src="edge.png" alt="EDGE"></a>
@@ -409,13 +412,13 @@
             </div>
             <div class="footer-box">
                 <h4>Location</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</p>
+                <p><i class="fas fa-map-marker-alt"></i> River Park Estate, Lugbe, Abuja.</p>
             </div>
             <div class="footer-box">
                 <h4>Follow</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/enable-green-consulting/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/p/DKAGVNnsypC/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -423,8 +426,10 @@
     </footer>
 
     <script>
+        // Snappy 0.5s preloader handler
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
+            // Adding class that triggers CSS 0.5s transition
             loader.classList.add('loader-hidden');
         });
     </script>
