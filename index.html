@@ -28,6 +28,23 @@
             color: var(--text-gray);
             background-color: var(--white);
             scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* --- LOGO WATERMARK EFFECT --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw; /* Large size */
+            height: 50vh;
+            background: url('enablegreen.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.04; /* Very faint so it doesn't distract */
+            z-index: -1; /* Behind everything */
+            pointer-events: none;
         }
 
         /* Navigation */
@@ -36,27 +53,24 @@
             justify-content: space-between;
             align-items: center;
             padding: 0.5rem 10%;
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95); /* Slight transparency */
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
-        /* Transparent Logo Styling */
         .logo-link {
             display: block;
             background: transparent;
-            text-decoration: none;
         }
 
         .logo-img {
             height: 70px; 
             width: auto;
             display: block;
-            /* This blend mode helps remove white backgrounds from images */
-            mix-blend-mode: multiply; 
-            background-color: transparent;
+            mix-blend-mode: multiply; /* Professional transparency trick */
         }
 
         .nav-links {
@@ -81,10 +95,10 @@
             color: var(--primary-green);
         }
 
-        /* Hero Section */
+        /* Hero Section with subtle logo overlay */
         .hero {
             height: 60vh;
-            background: linear-gradient(rgba(0, 47, 105, 0.4), rgba(46, 125, 50, 0.5)), 
+            background: linear-gradient(rgba(0, 47, 105, 0.5), rgba(46, 125, 50, 0.6)), 
                         url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80') center/cover;
             display: flex;
             flex-direction: column;
@@ -93,6 +107,8 @@
             text-align: center;
             color: var(--white);
             padding: 0 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero h1 {
@@ -100,6 +116,8 @@
             margin-bottom: 10px;
             letter-spacing: 2px;
             font-weight: 800;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h2 {
@@ -107,6 +125,8 @@
             font-weight: 300;
             color: var(--accent-green);
             font-style: italic;
+            position: relative;
+            z-index: 2;
         }
 
         .container {
@@ -129,11 +149,11 @@
 
         .about {
             padding: 80px 10%;
-            background: var(--bg-light);
+            background: rgba(249, 251, 249, 0.8); /* Semi-transparent to show watermark */
         }
 
         .card {
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -173,7 +193,7 @@
 
         .cert-section {
             padding: 80px 10%;
-            background: var(--white);
+            background: transparent;
             text-align: center;
         }
 
@@ -189,9 +209,8 @@
 
         .cert-logo-container a img {
             height: 55px;
-            width: auto;
             filter: grayscale(100%);
-            transition: all 0.3s ease;
+            transition: 0.3s;
             opacity: 0.8;
         }
 
@@ -204,14 +223,13 @@
         /* Team Section */
         .team {
             padding: 80px 10%;
-            background: var(--bg-light);
+            background: rgba(249, 251, 249, 0.85);
         }
 
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin-top: 40px;
         }
 
         .team-card {
@@ -220,11 +238,10 @@
             padding: 40px 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: 0.3s;
         }
 
         .member-img {
-            width: 200px;
+            width: 200px; /* Large professional size */
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
@@ -235,20 +252,16 @@
 
         .team-card h3 {
             color: var(--primary-green);
-            margin-bottom: 5px;
             font-size: 1.4rem;
         }
 
         .team-card p {
             font-style: italic;
-            margin-bottom: 15px;
-            font-size: 1rem;
             color: var(--text-gray);
         }
 
         .linkedin-link {
             color: #0077b5;
-            text-decoration: none;
             font-size: 1.4rem;
         }
 
@@ -263,40 +276,25 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
         }
 
         .footer-box h4 {
             color: var(--accent-green);
             margin-bottom: 20px;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        .footer-box p {
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .social-links a {
             color: var(--white);
             font-size: 1.5rem;
             margin-right: 20px;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-green);
         }
 
         .bottom-bar {
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 20px;
+            margin-top: 40px;
             font-size: 0.8rem;
             color: #999;
         }
@@ -306,13 +304,16 @@
             .hero h1 { font-size: 2.2rem; }
             .nav-links { display: none; }
             .logo-img { height: 55px; } 
+            body::before { width: 80vw; opacity: 0.03; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo-link"><img src="enablegreen.png" alt="Enable Green Consulting Logo" class="logo-img"></a>
+        <a href="#" class="logo-link">
+            <img src="enablegreen.png" alt="Enable Green Consulting Logo" class="logo-img">
+        </a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
@@ -360,28 +361,28 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">What we do</h2>
-            <p style="text-align: center; max-width: 800px; margin: auto; margin-bottom: 20px;">Sustainability cuts across all business sectors and is relevant for any long term thinking organisation however knowing the right strategies to adopt is the first step towards achieving impact.</p>
+            <p style="text-align: center; max-width: 800px; margin: auto; margin-bottom: 20px;">Sustainability cuts across all business sectors and is relevant for any long term thinking organisation. Knowing the right strategies to adopt is the first step towards achieving impact.</p>
             
             <div class="services-grid">
                 <div class="service-box">
                     <h3>Buildings</h3>
-                    <p>To address the significant impact of the built environment, which accounts for nearly 40% of global CO₂ emissions by designing resource efficient buildings and integrating effective water and waste management systems.</p>
+                    <p>Addressing the significant impact of the built environment (nearly 40% of global CO₂ emissions) by designing resource efficient buildings and waste management systems.</p>
                 </div>
                 <div class="service-box">
                     <h3>Agriculture</h3>
-                    <p>Sustainable agriculture is a farming approach that seeks to meet current food and resource needs without compromising the ability of future generations to do the same.</p>
+                    <p>Sustainable agriculture is a farming approach that seeks to meet current food needs without compromising future generations.</p>
                 </div>
                 <div class="service-box">
                     <h3>Business</h3>
-                    <p>Sustainable business practices involve integrating environmental, social, and governance (ESG) principles into core operations to create long-term value.</p>
+                    <p>Integrating environmental, social, and governance (ESG) principles into core operations to create long-term value.</p>
                 </div>
                 <div class="service-box">
                     <h3>Energy</h3>
-                    <p>Renewable energy generation and energy efficiency are critical pillars in the transition to a low-carbon future, reducing reliance on fossil fuels.</p>
+                    <p>Renewable energy generation and energy efficiency are critical pillars in the transition to a low-carbon future.</p>
                 </div>
                 <div class="service-box">
                     <h3>Transport</h3>
-                    <p>Sustainable transportation systems are designed to meet mobility needs while minimizing environmental impact and promoting social equity.</p>
+                    <p>Sustainable transportation systems are designed to meet mobility needs while minimizing environmental impact.</p>
                 </div>
             </div>
         </div>
@@ -391,15 +392,15 @@
         <div class="container">
             <h2 class="section-title">Green Building Certification</h2>
             <div class="card" style="text-align: left; margin-bottom: 40px;">
-                <p>We are your one-stop shop firm for Green Building Certification Services. As licensed EDGE Experts, Auditors and Faculty, we handle your EDGE Certification from Assessment/modelling in the EDGE App to Certification with multiple Certifiers (GBCI, GBCSA, and Bureau Veritas). We also conduct EDGE Experts Training independently and maintain a network of over 20 EDGE Experts and Auditors within Sub-saharan Africa and the MENA Region.</p>
+                <p>We are your one-stop shop firm for Green Building Certification Services. As licensed EDGE Experts, Auditors and Faculty, we handle your EDGE Certification from Assessment/modelling in the EDGE App to Certification with multiple Certifiers (GBCI, GBCSA, and Bureau Veritas).</p>
                 <p style="margin-top: 15px;">In addition, we offer WELL, DGNB, and LEED Certification services and perform Life Cycle Assessments using One Click LCA tools.</p>
             </div>
             
             <div class="cert-logo-container">
-                <a href="https://edgebuildings.com/" target="_blank"><img src="edge.png" alt="EDGE Certification"></a>
-                <a href="https://www.wellcertified.com/" target="_blank"><img src="well.png" alt="WELL Certified"></a>
-                <a href="https://www.usgbc.org/" target="_blank"><img src="leed.png" alt="LEED Certification"></a>
-                <a href="https://www.dgnb.de/en" target="_blank"><img src="dgnb.png" alt="DGNB Certification"></a>
+                <a href="https://edgebuildings.com/" target="_blank"><img src="edge.png" alt="EDGE"></a>
+                <a href="https://www.wellcertified.com/" target="_blank"><img src="well.png" alt="WELL"></a>
+                <a href="https://www.usgbc.org/" target="_blank"><img src="leed.png" alt="LEED"></a>
+                <a href="https://www.dgnb.de/en" target="_blank"><img src="dgnb.png" alt="DGNB"></a>
             </div>
         </div>
     </section>
@@ -407,7 +408,6 @@
     <section id="team" class="team">
         <div class="container">
             <h2 class="section-title">Meet the Team</h2>
-            <p style="text-align: center;">Our team have a combined 20 years experience in Sustainability cutting across the main sectors we operate in.</p>
             <div class="team-grid">
                 <div class="team-card">
                     <img src="mary.jpeg" alt="Arc. Mary Dasat" class="member-img">
@@ -434,18 +434,16 @@
     <footer id="contact">
         <div class="footer-grid">
             <div class="footer-box">
-                <h4>Connect with Us</h4>
+                <h4>Connect</h4>
                 <p><i class="fas fa-phone"></i> +2349051399534</p>
-                <p><i class="fas fa-phone"></i> +2347035229861</p>
-                <p><i class="fas fa-envelope"></i> enablegreenconsulting@gmail.com</p>
                 <p><i class="fas fa-envelope"></i> connect@enablegreenconsulting.com</p>
             </div>
             <div class="footer-box">
-                <h4>Address</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Plot 114A, Chief Gideon Oki Street, Cluster 3, River Park Estate, Lugbe, Airport Road, Abuja.</p>
+                <h4>Location</h4>
+                <p><i class="fas fa-map-marker-alt"></i> River Park Estate, Lugbe, Airport Road, Abuja.</p>
             </div>
             <div class="footer-box">
-                <h4>Follow Our Impact</h4>
+                <h4>Follow</h4>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/company/enable-green-consulting/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/p/DKAGVNnsypC/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -454,7 +452,7 @@
             </div>
         </div>
         <div class="bottom-bar">
-            &copy; 2026 Enable Green Consulting. All Rights Reserved.
+            &copy; 2026 Enable Green Consulting.
         </div>
     </footer>
 
