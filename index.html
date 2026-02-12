@@ -35,19 +35,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 10%; /* Reduced padding for a sleeker bar */
+            padding: 0.5rem 10%;
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        /* Adjusted Logo size to be professional but not oversized */
+        /* Transparent Logo Styling */
+        .logo-link {
+            display: block;
+            background: transparent;
+            text-decoration: none;
+        }
+
         .logo-img {
             height: 70px; 
             width: auto;
             display: block;
+            /* This blend mode helps remove white backgrounds from images */
+            mix-blend-mode: multiply; 
+            background-color: transparent;
         }
 
         .nav-links {
@@ -214,7 +223,6 @@
             transition: 0.3s;
         }
 
-        /* Professional Large Image size */
         .member-img {
             width: 200px;
             height: 200px;
@@ -304,11 +312,11 @@
 <body>
 
     <nav>
-        <a href="#"><img src="enablegreen.png" alt="Enable Green Consulting Logo" class="logo-img"></a>
+        <a href="#" class="logo-link"><img src="enablegreen.png" alt="Enable Green Consulting Logo" class="logo-img"></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#team">Team</a></li>
+            <li><a href="#team">People</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -391,7 +399,7 @@
                 <a href="https://edgebuildings.com/" target="_blank"><img src="edge.png" alt="EDGE Certification"></a>
                 <a href="https://www.wellcertified.com/" target="_blank"><img src="well.png" alt="WELL Certified"></a>
                 <a href="https://www.usgbc.org/" target="_blank"><img src="leed.png" alt="LEED Certification"></a>
-                <a href="https://www.dgnb.de/en" target="_blank"><img src="dgbn.png" alt="DGNB Certification"></a>
+                <a href="https://www.dgnb.de/en" target="_blank"><img src="dgnb.png" alt="DGNB Certification"></a>
             </div>
         </div>
     </section>
